@@ -16,6 +16,8 @@ namespace ITI.Product.Task.BackendApi
             Configuration = configuration;
         }
 
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -24,9 +26,17 @@ namespace ITI.Product.Task.BackendApi
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<ProductDbContext>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
             //register the unit of work
-            
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            // Adding CORS service to allow connection between front-end and API
+            services.AddCors(options => options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.SetIsOriginAllowedToAllowWildcardSubdomains();
+
+                }));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,8 +56,9 @@ namespace ITI.Product.Task.BackendApi
             app.UseHttpsRedirection();
             app.UseMvc();
             productDbContext.EnsureSeedDataForContext();
+            app.UseCors(MyAllowSpecificOrigins);
 
-            
+
         }
     }
 }

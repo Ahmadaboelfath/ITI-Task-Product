@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ITI.Product.Task.BackendApi.Core;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +22,7 @@ namespace ITI.Product.Task.BackendApi.Controllers
         {
             _unitOfWork = unitOfWork;
         }
-
+        [EnableCors]
         [HttpGet]
         public IActionResult GetAllProducts()
         {
@@ -30,7 +31,7 @@ namespace ITI.Product.Task.BackendApi.Controllers
             return Ok(productsFromRepo);
         }
 
-
+        [EnableCors]
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -45,7 +46,7 @@ namespace ITI.Product.Task.BackendApi.Controllers
 
         }
 
-
+        [EnableCors]
         [HttpPut("{id}")]
         public IActionResult Edit(Guid id, [FromBody] Core.Domain.Product product )
         {
