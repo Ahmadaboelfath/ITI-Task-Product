@@ -24,6 +24,11 @@ namespace ITI.Product.Task.BackendApi.Controllers
             _unitOfWork = unitOfWork;
         }
 
+        /// <summary>
+        ///  Get all products inside the product table
+        /// </summary>
+        /// <returns> returns an IEnumerable of all products </returns>
+
         [HttpGet]
         public IActionResult GetAllProducts()
         {
@@ -32,7 +37,13 @@ namespace ITI.Product.Task.BackendApi.Controllers
             return Ok(productsFromRepo);
         }
 
-
+        /// <summary>
+        /// Get a product by his Id
+        /// </summary>
+        /// <param name="id"> the id of the product you want to get </param>
+        /// <returns>
+        /// a product with id, product name, price, image url , company name
+        /// </returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
