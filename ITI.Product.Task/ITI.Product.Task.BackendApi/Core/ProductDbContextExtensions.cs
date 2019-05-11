@@ -22,7 +22,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Laptop",
                     CompanyName = "HP",
                     Price = 2500,
-                    ImageUrl = "~/Images/laptop.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/laptop.png"
                 },
 
                 new Domain.Product()
@@ -31,7 +31,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Mobile",
                     CompanyName = "LG",
                     Price = 3000,
-                    ImageUrl = "~/Images/Mobile.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/Mobile.png"
                 },
 
                 new Domain.Product()
@@ -40,7 +40,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "LCD",
                     CompanyName = "Samsung",
                     Price = 5000,
-                    ImageUrl = "~/Images/LCD.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/LCD.png"
                 },
 
                 new Domain.Product()
@@ -49,7 +49,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "LED",
                     CompanyName = "Sony",
                     Price = 7000,
-                    ImageUrl = "~/Images/LEDTV.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/LEDTV.png"
                 },
 
                 new Domain.Product()
@@ -58,7 +58,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "PS4",
                     CompanyName = "Sony",
                     Price = 2500,
-                    ImageUrl = "~/Images/PS4.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/LEDTV.png"
                 },
 
                 new Domain.Product()
@@ -67,7 +67,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "LEDLamp",
                     CompanyName = "Venus",
                     Price = 25.5,
-                    ImageUrl = "~/Images/LEDLamp.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/LEDLamp.png"
                 },
 
                 new Domain.Product()
@@ -76,7 +76,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Pen",
                     CompanyName = "barker",
                     Price = 100,
-                    ImageUrl = "~/Images/Pen.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/Pen.png"
                 },
 
                 new Domain.Product()
@@ -85,7 +85,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Blue T-Shirt ",
                     CompanyName = "Addidas",
                     Price = 125,
-                    ImageUrl = "~/Images/BlueTshirt.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/BlueTshirt.png"
                 },
 
                 new Domain.Product()
@@ -94,7 +94,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Shirt",
                     CompanyName = "BTM",
                     Price = 200,
-                    ImageUrl = "~/Images/Shirt.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/Shirt.png"
                 },
 
                 new Domain.Product()
@@ -103,7 +103,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Key Chain",
                     CompanyName = "XYZ",
                     Price = 50,
-                    ImageUrl = "~/Images/KeyChain.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/KeyChain.png"
                 },
 
                 new Domain.Product()
@@ -112,7 +112,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Bottle",
                     CompanyName = "TupperWare",
                     Price = 100,
-                    ImageUrl = "~/Images/bottle.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/bottle.png"
                 },
 
                 new Domain.Product()
@@ -121,7 +121,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Comb",
                     CompanyName = "ABC",
                     Price = 10,
-                    ImageUrl = "~/Images/comb.png"
+                    ImageUrl = "~gs://iti-task-e7004.appspot.com/Images/comb.png"
                 },
 
                 new Domain.Product()
@@ -130,7 +130,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Thermal Cup",
                     CompanyName = "ESA limited",
                     Price = 150,
-                    ImageUrl = "~/Images/thermalcup.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/thermalcup.png"
                 },
 
                 new Domain.Product()
@@ -139,7 +139,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Air Freshner",
                     CompanyName = "Glade",
                     Price = 250,
-                    ImageUrl = "~/Images/AirFreshner.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/AirFreshner.png"
                 },
 
                 new Domain.Product()
@@ -148,7 +148,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Wallet",
                     CompanyName = "Calvin Klein",
                     Price = 600,
-                    ImageUrl = "~/Images/Wallet.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/Wallet.png"
                 },
 
                 new Domain.Product()
@@ -157,7 +157,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Socks",
                     CompanyName = "Cottonil",
                     Price = 30,
-                    ImageUrl = "~/Images/Socks.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/Socks.png"
                 },
 
                 new Domain.Product()
@@ -166,7 +166,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Shoes",
                     CompanyName = "Clark",
                     Price = 1200,
-                    ImageUrl = "~/Images/Shoes.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/Shoes.png"
                 },
 
                 new Domain.Product()
@@ -175,7 +175,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Sports Shoes",
                     CompanyName = "Nike",
                     Price =1050,
-                    ImageUrl = "~/Images/SportsShoes.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/SportsShoes.png"
                 },
 
                 new Domain.Product()
@@ -184,7 +184,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Book",
                     CompanyName = "ttt",
                     Price = 2000,
-                    ImageUrl = "~/Images/Book.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/Book.png"
                 },
 
                 new Domain.Product()
@@ -193,7 +193,7 @@ namespace ITI.Product.Task.BackendApi.Core
                     ProductName = "Headphones",
                     CompanyName = "Jabra",
                     Price = 550,
-                    ImageUrl = "~/Images/Headphone.png"
+                    ImageUrl = "gs://iti-task-e7004.appspot.com/Images/Headphone.png"
                 }
             };
 
