@@ -46,11 +46,24 @@ namespace ITI.Product.Task.BackendApi.Controllers
         }
 
 
-        //[HttpPut("{id}")]
-        //public IActionResult Edit(Guid id)
-        //{
-        //    var prod
-        //}
+        [HttpPut("{id}")]
+        public IActionResult Edit(Guid id, [FromBody] Core.Domain.Product product )
+        {
+            var productFromRepo = _unitOfWork.Product.Get(id);
+            if (productFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            productFromRepo = product;
+
+            if (!(_unitOfWork.Complete() <= 0))
+            {
+               throw new Exception($"Updating the product with id: {id} has failed");
+            }
+
+            return NoContent();
+        }
 
     }
 }
