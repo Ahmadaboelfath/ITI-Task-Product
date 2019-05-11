@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using ITI.Product.Task.BackendApi.Core;
+using ITI.Product.Task.BackendApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,17 +49,28 @@ namespace ITI.Product.Task.BackendApi.Controllers
 
 
         [HttpPut("{id}")]
-        public IActionResult Edit(Guid id, [FromBody] Core.Domain.Product product )
+        public IActionResult Edit(Guid id, [FromBody] ProductUpdateDto product )
         {
+            if (product == null)
+            {
+                return BadRequest();
+            }
+
             var productFromRepo = _unitOfWork.Product.Get(id);
             if (productFromRepo == null)
             {
                 return NotFound();
             }
 
-            productFromRepo = product;
+            //Mapping the ProductUpdateDto to the product entity
+            productFromRepo.Id = id;
+            productFromRepo.CompanyName = product.CompanyName;
+            productFromRepo.ImageUrl = product.ImageUrl;
+            productFromRepo.Price = product.Price;
+            productFromRepo.ProductName = product.ProductName;
 
-            if (!(_unitOfWork.Complete() <= 0))
+
+            if (!(_unitOfWork.Complete() > 0))
             {
                throw new Exception($"Updating the product with id: {id} has failed");
             }

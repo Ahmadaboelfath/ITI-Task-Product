@@ -1,4 +1,5 @@
 ﻿using ITI.Product.Task.BackendApi.Core;
+using ITI.Product.Task.BackendApi.Models;
 using ITI.Product.Task.BackendApi.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +36,11 @@ namespace ITI.Product.Task.BackendApi
 
                 }));
 
+            //Configuring the automapper
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<ProductUpdateDto, Core.Domain.Product>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
