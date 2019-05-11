@@ -33,7 +33,7 @@ namespace ITI.Product.Task.BackendApi
             services.AddCors(options => options.AddPolicy(MyAllowSpecificOrigins,
                 builder =>
                 {
-                    builder.SetIsOriginAllowedToAllowWildcardSubdomains();
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
 
                 }));
 
