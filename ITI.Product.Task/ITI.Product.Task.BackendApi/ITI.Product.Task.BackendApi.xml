@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ITI.Product.Task.BackendApi</name>
+    </assembly>
+    <members>
+        <member name="T:ITI.Product.Task.BackendApi.Controllers.ProductController">
+            <summary>
+             Controller Responsible for Managing CRUD operation for product entity
+            </summary>
+        </member>
+        <member name="M:ITI.Product.Task.BackendApi.Controllers.ProductController.GetAllProducts">
+            <summary>
+             Get all products inside the product table
+            </summary>
+            <returns> returns an IEnumerable of all products </returns>
+        </member>
+        <member name="M:ITI.Product.Task.BackendApi.Controllers.ProductController.GetById(System.Guid)">
+            <summary>
+            Get a product by his Id
+            </summary>
+            <param name="id"> the id of the product you want to get </param>
+            <returns>
+            a product with id, product name, price, image url , company name
+            </returns>
+        </member>
+        <member name="M:ITI.Product.Task.BackendApi.Controllers.ProductController.Edit(System.Guid,ITI.Product.Task.BackendApi.Models.ProductUpdateDto)">
+            <summary>
+            Update a specific product by his id
+            </summary>
+            <param name="id"></param> product Id
+            <param name="product"></param> product sent in the body of the request
+            <returns>
+                returns 204 no content status code on success 
+            </returns>
+        </member>
+        <member name="T:ITI.Product.Task.BackendApi.Core.Domain.Product">
+            <summary>
+            Responsible for managing the products inside the application
+            </summary>
+        </member>
+        <member name="T:ITI.Product.Task.BackendApi.Core.IUnitOfWork">
+            <summary>
+            Generic unit of work interface
+            </summary>
+        </member>
+        <member name="T:ITI.Product.Task.BackendApi.Core.ProductDbContext">
+            <summary>
+            The database context class that manages database transactions
+            </summary>
+        </member>
+        <member name="T:ITI.Product.Task.BackendApi.Persistence.Repository.Repository`1">
+            <summary>
+            The generic implementation for the repository
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="T:ITI.Product.Task.BackendApi.Persistence.UnitOfWork">
+            <summary>
+            Unit of work implementation
+            </summary>
+        </member>
+    </members>
+</doc>

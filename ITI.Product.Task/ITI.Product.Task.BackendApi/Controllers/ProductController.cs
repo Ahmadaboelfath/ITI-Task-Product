@@ -58,7 +58,14 @@ namespace ITI.Product.Task.BackendApi.Controllers
 
         }
 
-
+        /// <summary>
+        /// Update a specific product by his id
+        /// </summary>
+        /// <param name="id"></param> product Id
+        /// <param name="product"></param> product sent in the body of the request
+        /// <returns>
+        ///     returns 204 no content status code on success 
+        /// </returns>
         [HttpPut("{id}")]
         public IActionResult Edit(Guid id, [FromBody] ProductUpdateDto product )
         {

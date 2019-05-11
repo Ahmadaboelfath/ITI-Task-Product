@@ -57,8 +57,22 @@ namespace ITI.Product.Task.BackendApi
                     new OpenApiInfo()
                     {
                         Title = "Product API",
-                        Version = "1"
+                        Version = "1",
+                        Description = "Through this API you can get and edit products",
+                        Contact = new OpenApiContact()
+                        {
+                            Email = "ahmadaboelfath@gmail.com",
+                            Name = "Ahmad Essam El-Din Mohamed",
+                            Url = new Uri("https://www.linkedin.com/in/ahmad-essam-mohamed-aboel-fath-174273bb")
+                        },
+                        License = new OpenApiLicense()
+                        {
+                            Name = "Open License"
+                        }
                     });
+                var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
+                setupAction.IncludeXmlComments(xmlCommentsFullPath);
             });
 
         }
@@ -112,15 +126,6 @@ namespace ITI.Product.Task.BackendApi
 
           
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
-            // specifying the Swagger JSON endpoint.
-
-            //app.UseSwaggerUI(c =>
-            //{
-            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            //    c.RoutePrefix = string.Empty;
-            //});
-
-        }
+  }
     }
 }
