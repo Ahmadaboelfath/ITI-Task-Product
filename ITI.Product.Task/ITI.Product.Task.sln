@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITI.Product.Task.BackendApi", "ITI.Product.Task.BackendApi\ITI.Product.Task.BackendApi.csproj", "{2B52F69F-0F11-4A62-8FE7-0AF0EAE7BD91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductAPI.Test.Nunit", "ProductAPI.Test.Nunit\ProductAPI.Test.Nunit.csproj", "{497714B8-1C1B-448B-A9A3-7D754F203F5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductAPI.Test.Nunit", "ProductAPI.Test.Nunit\ProductAPI.Test.Nunit.csproj", "{497714B8-1C1B-448B-A9A3-7D754F203F5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIProducts.Test", "APIProducts.Test\APIProducts.Test.csproj", "{EC7E2314-8C6E-4DA8-ACD1-20FA152BDD1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{497714B8-1C1B-448B-A9A3-7D754F203F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{497714B8-1C1B-448B-A9A3-7D754F203F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{497714B8-1C1B-448B-A9A3-7D754F203F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC7E2314-8C6E-4DA8-ACD1-20FA152BDD1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC7E2314-8C6E-4DA8-ACD1-20FA152BDD1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC7E2314-8C6E-4DA8-ACD1-20FA152BDD1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC7E2314-8C6E-4DA8-ACD1-20FA152BDD1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

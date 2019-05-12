@@ -24,7 +24,7 @@ namespace Tests
             //Arrange
             var productController = new ProductController(UnitOfWork);
             //Act
-            var Actual = productController.GetAllProducts();
+            var Data = productController.GetAllProducts();
 
 
             Assert.Pass();
