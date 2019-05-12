@@ -1,0 +1,14 @@
+#table {
+  width: 56%;
+  margin: 0 auto;
+  /* border: 0.5px solid gray; */
+  border-radius: 5px;
+  background: rgb(235, 235, 235);
+  /* position: relative;
+  top: 100px; */
+}
+
+.table td,
+th {
+  padding: 10px;
+}
