@@ -1,4 +1,5 @@
 ﻿using ITI.Product.Task.BackendApi.Core;
+using ITI.Product.Task.BackendApi.Models;
 using ITI.Product.Task.BackendApi.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,6 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.IO;
+using System.Reflection;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.OpenApi.Models;
 
 namespace ITI.Product.Task.BackendApi
 {
@@ -17,16 +25,56 @@ namespace ITI.Product.Task.BackendApi
         }
 
         public IConfiguration Configuration { get; }
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(setupAction =>
+            {
+                setupAction.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
+                setupAction.InputFormatters.Add(new XmlDataContractSerializerInputFormatter());
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<ProductDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            //register the unit of work
+
+            // Adding CORS service to allow connection between front-end and API
+            services.AddCors(options => options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+
+                }));
+
             
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(setupAction =>
+            {
+                setupAction.SwaggerDoc(
+                    "ProductOpenApiSpecification",
+                    new OpenApiInfo()
+                    {
+                        Title = "Product API",
+                        Version = "1",
+                        Description = "Through this API you can get and edit products",
+                        Contact = new OpenApiContact()
+                        {
+                            Email = "ahmadaboelfath@gmail.com",
+                            Name = "Ahmad Essam El-Din Mohamed",
+                            Url = new Uri("https://www.linkedin.com/in/ahmad-essam-mohamed-aboel-fath-174273bb")
+                        },
+                        License = new OpenApiLicense()
+                        {
+                            Name = "Open License"
+                        }
+                    });
+                var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
+                setupAction.IncludeXmlComments(xmlCommentsFullPath);
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,15 +87,45 @@ namespace ITI.Product.Task.BackendApi
             }
             else
             {
+                app.UseExceptionHandler(appbuilder =>
+                {
+                    appbuilder.Run(async context =>
+                    {
+                        context.Response.StatusCode = 500;
+                        await context.Response.WriteAsync("An unexpected fault happened. Try again later");
+                    });
+                });
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
+            //Configuring the automapper
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<ProductUpdateDto, Core.Domain.Product>();
+            });
+
             app.UseHttpsRedirection();
+
+
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
+            //Enable the middleware to serve generated swagger as a JSON Endpoint
+            app.UseSwagger();
+
+            //Adding Swagger Ui
+            app.UseSwaggerUI(setupAction =>
+            {
+                setupAction.SwaggerEndpoint("/swagger/ProductOpenApiSpecification/swagger.json", "Product API");
+                setupAction.RoutePrefix = string.Empty;
+            });
+
             app.UseMvc();
+
             productDbContext.EnsureSeedDataForContext();
 
-            
-        }
+          
+
+  }
     }
 }
