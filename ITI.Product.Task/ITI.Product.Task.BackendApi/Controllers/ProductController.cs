@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
+
 using ITI.Product.Task.BackendApi.Core;
 using ITI.Product.Task.BackendApi.Models;
 using Microsoft.AspNetCore.Http;
